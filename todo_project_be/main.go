@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"todo_project_be/config"
+	"todo_project_be/routes"
+)
 
 func main() {
-	fmt.Println("Hello world")
+	config.InitDB()
+
+	router := routes.SetupRouter()
+
+	router.Run(":8080")
 }
